@@ -397,7 +397,7 @@ def chatbot_message(request):
 def robots_txt(request):
     """Generate robots.txt for search engine crawlers."""
     content = """# Robots.txt for Kaffero - Cafe Management Software
-# https://kaffero.in
+# https://kaffero.online
 
 User-agent: *
 Allow: /
@@ -427,7 +427,7 @@ Disallow: /dashboard/
 Disallow: /api/
 
 # Sitemap location
-Sitemap: https://kaffero.in/sitemap.xml
+Sitemap: https://kaffero.online/sitemap.xml
 
 # Crawl-delay for politeness (optional)
 Crawl-delay: 1
@@ -441,7 +441,7 @@ def sitemap_xml(request):
     from django.utils import timezone
 
     # Base URL
-    base_url = "https://kaffero.in"
+    base_url = "https://kaffero.online"
 
     # Static pages with priority and change frequency
     static_pages = [

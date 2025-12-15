@@ -19,8 +19,8 @@ ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1,.railway.ap
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.railway.app',
-    'https://kaffero.in',
-    'https://*.kaffero.in',
+    'https://kaffero.online',
+    'https://*.kaffero.online',
 ]
 
 
@@ -140,7 +140,7 @@ SITE_DESCRIPTION = 'Complete cafe management system with orders, tables, kitchen
 
 # Company Info
 COMPANY_NAME = 'Ralfiz Technologies'
-COMPANY_EMAIL = 'hello@kaffero.in'
+COMPANY_EMAIL = 'kafferoapp@gmail.com'
 COMPANY_PHONE = '+91 98956 63498'
 COMPANY_WHATSAPP = '+91 98956 63498'
 COMPANY_ADDRESS = 'Kerala, India'
@@ -163,8 +163,8 @@ EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True').lower() == 'true'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 
-DEFAULT_FROM_EMAIL = 'Kaffero <hello@kaffero.in>'
-ADMIN_EMAIL = 'admin@kaffero.in'
+DEFAULT_FROM_EMAIL = 'Kaffero <kafferoapp@gmail.com>'
+ADMIN_EMAIL = 'kafferoapp@gmail.com'
 
 
 # =============================================================================
