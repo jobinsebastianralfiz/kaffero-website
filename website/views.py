@@ -435,13 +435,40 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
+# Allow AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
 # Disallow admin and dashboard areas
+User-agent: *
 Disallow: /admin/
 Disallow: /dashboard/
 Disallow: /api/
 
 # Sitemap location
 Sitemap: https://kaffero.online/sitemap.xml
+Sitemap: https://www.kaffero.online/sitemap.xml
 
 # Crawl-delay for politeness (optional)
 Crawl-delay: 1

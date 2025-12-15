@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" href="{% static 'favicon.svg' %}">
 
     <!-- SEO Meta Tags -->
-    <meta name="keywords" content="{% block meta_keywords %}cafe management software, restaurant POS system, cafe POS, restaurant management system, QR code ordering, digital menu, kitchen display system, waiter app, table management software, cafe billing software, restaurant ordering system, hospitality software, food service management, cafe inventory management, restaurant analytics, cloud POS, mobile ordering app, contactless ordering, self-service kiosk, multi-outlet management{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}cafe management software, restaurant POS system, cafe POS India, restaurant management system, QR code ordering, digital menu, kitchen display system KDS, waiter app, table management software, cafe billing software India, restaurant ordering system, hospitality software, food service management, cafe inventory management, restaurant analytics, cloud POS, mobile ordering app, contactless ordering, self-service kiosk, multi-outlet management, best cafe software India, restaurant software Kerala, cafe pos system, food ordering app, table reservation system, online ordering system, restaurant ERP, cafe CRM, GST billing software restaurant, hotel management software, coffee shop software, bakery POS, bar POS system, canteen management software, food court management, QR menu ordering, digital restaurant menu, restaurant waiter app, kitchen order ticket KOT, restaurant inventory software{% endblock %}">
     <meta name="author" content="{{ company_name }}">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
@@ -49,29 +49,85 @@
     <link rel="alternate" hreflang="en" href="https://kaffero.online{{ request.path }}">
     <link rel="alternate" hreflang="x-default" href="https://kaffero.online{{ request.path }}">
 
-    <!-- Structured Data -->
+    <!-- Structured Data - Software Application -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "{{ site_name }}",
         "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web, Android",
+        "applicationSubCategory": "Restaurant Management Software",
+        "operatingSystem": "Web, Android, iOS",
         "description": "{{ site_description }}",
         "url": "https://kaffero.online",
+        "image": "https://kaffero.online{% static 'images/og-image.png' %}",
+        "screenshot": "https://kaffero.online{% static 'images/og-image.png' %}",
+        "featureList": "QR Code Ordering, Kitchen Display System, Waiter App, Table Management, Digital Menu, POS System, Inventory Management, Sales Analytics",
         "author": {
             "@type": "Organization",
-            "name": "{{ company_name }}"
+            "name": "{{ company_name }}",
+            "url": "https://ralfiz.com"
         },
         "offers": {
-            "@type": "Offer",
-            "price": "35000",
-            "priceCurrency": "INR"
+            "@type": "AggregateOffer",
+            "lowPrice": "35000",
+            "highPrice": "95000",
+            "priceCurrency": "INR",
+            "offerCount": "3"
         },
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.8",
-            "ratingCount": "50"
+            "ratingCount": "50",
+            "bestRating": "5",
+            "worstRating": "1"
+        }
+    }
+    </script>
+
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "{{ company_name }}",
+        "alternateName": "Kaffero",
+        "url": "https://kaffero.online",
+        "logo": "https://kaffero.online{% static 'favicon.svg' %}",
+        "description": "{{ site_description }}",
+        "email": "{{ company_email }}",
+        "telephone": "{{ company_phone }}",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kerala",
+            "addressCountry": "IN"
+        },
+        "sameAs": [
+            "{{ social_linkedin }}",
+            "{{ social_instagram }}",
+            "{{ social_facebook }}",
+            "{{ social_youtube }}"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "{{ company_phone }}",
+            "contactType": "sales",
+            "availableLanguage": ["English", "Hindi", "Malayalam"]
+        }
+    }
+    </script>
+
+    <!-- Structured Data - WebSite for Search Box -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{{ site_name }}",
+        "url": "https://kaffero.online",
+        "description": "{{ site_description }}",
+        "publisher": {
+            "@type": "Organization",
+            "name": "{{ company_name }}"
         }
     }
     </script>
