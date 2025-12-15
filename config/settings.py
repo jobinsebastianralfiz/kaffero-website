@@ -135,7 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # =============================================================================
 
 SITE_NAME = 'Kaffero'
-SITE_TAGLINE = 'Run Your Cafe Like a Pro'
+SITE_TAGLINE = 'Built for cafés that never stop brewing'
 SITE_DESCRIPTION = 'Complete cafe management system with orders, tables, kitchen display, waiter app, and QR ordering.'
 
 # Company Info
