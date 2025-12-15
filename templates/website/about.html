@@ -5,40 +5,130 @@
 {% block content %}
 <section class="relative pt-32 pb-20 overflow-hidden">
     <div class="orb orb-1"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="orb orb-2"></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6">
+                <span class="text-purple-400">&#9749;</span>
+                <span class="text-sm text-gray-300">Our Story</span>
+            </div>
             <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">
                 About <span class="gradient-text">{{ site_name }}</span>
             </h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                Built by cafe lovers, for cafe owners
+            </p>
         </div>
 
-        <div class="glass rounded-3xl p-8 md:p-12 space-y-8">
-            <div>
-                <h2 class="text-2xl font-display font-bold mb-4 gradient-text">Our Story</h2>
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <!-- Our Story -->
+            <div class="glass rounded-3xl p-8 neon-border">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 flex items-center justify-center">
+                        <span class="text-2xl">&#128218;</span>
+                    </div>
+                    <h2 class="text-2xl font-display font-bold gradient-text">Our Story</h2>
+                </div>
                 <p class="text-gray-400 leading-relaxed">
-                    Kaffero was born from watching cafe owners struggle with outdated systems and paper chaos.
-                    We believe running a cafe should be as smooth as your morning latte &mdash; not a source of daily stress.
+                    Kaffero was born from watching cafe owners struggle with outdated systems, paper KOTs, and
+                    operational chaos. We saw passionate cafe owners spending more time managing systems than
+                    serving customers. That's when we decided to build something different &mdash; a solution
+                    that's as delightful to use as your morning cappuccino.
                 </p>
             </div>
 
-            <div>
-                <h2 class="text-2xl font-display font-bold mb-4 gradient-text">Our Mission</h2>
+            <!-- Our Mission -->
+            <div class="glass rounded-3xl p-8 neon-border">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 flex items-center justify-center">
+                        <span class="text-2xl">&#127919;</span>
+                    </div>
+                    <h2 class="text-2xl font-display font-bold gradient-text">Our Mission</h2>
+                </div>
                 <p class="text-gray-400 leading-relaxed">
-                    To empower cafe owners with beautiful, reliable technology that simplifies operations and lets
-                    passion for coffee take center stage.
+                    To empower cafe owners with beautiful, reliable technology that simplifies operations and
+                    lets their passion for coffee take center stage. We believe running a cafe should be as
+                    smooth as your morning latte &mdash; not a source of daily stress.
                 </p>
             </div>
+        </div>
 
-            <div>
-                <h2 class="text-2xl font-display font-bold mb-4 gradient-text">Built by {{ company_name }}</h2>
-                <p class="text-gray-400 leading-relaxed">
-                    {{ company_name }} is a web and app development company specializing in Django and Flutter solutions.
-                    We build software that businesses love to use.
-                </p>
+        <!-- Why Kaffero -->
+        <div class="glass rounded-3xl p-8 md:p-12 mb-12">
+            <h2 class="text-2xl font-display font-bold mb-8 text-center gradient-text">Why Cafe Owners Love Kaffero</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">&#128640;</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Quick Setup</h3>
+                    <p class="text-sm text-gray-400">Get started in hours, not weeks. We handle the heavy lifting.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">&#128241;</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Works Offline</h3>
+                    <p class="text-sm text-gray-400">Your business doesn't stop when WiFi does. Kaffero keeps working.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">&#128588;</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Indian Support</h3>
+                    <p class="text-sm text-gray-400">Real humans in India, speaking your language, in your timezone.</p>
+                </div>
             </div>
+        </div>
 
-            <div class="text-center pt-8">
-                <a href="{% url 'demo' %}" class="btn-stunning">Request Demo</a>
+        <!-- Built by Ralfiz -->
+        <div class="glass rounded-3xl p-8 md:p-12 neon-border">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-shrink-0">
+                    <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-purple-600 to-cyan-500 flex items-center justify-center">
+                        <span class="text-4xl font-bold text-white">R</span>
+                    </div>
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <h2 class="text-2xl font-display font-bold mb-4 gradient-text">Built by {{ company_name }}</h2>
+                    <p class="text-gray-400 leading-relaxed mb-4">
+                        {{ company_name }} is a software company established in 2019, specializing in Django and Flutter
+                        solutions. Based in Kerala, India, we build software that businesses genuinely love to use.
+                        Our portfolio includes products like Kaffero, Laundry CRM, and Uptrail LMS &mdash; all designed
+                        with the same philosophy: powerful features, beautiful design, exceptional support.
+                    </p>
+                    <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                        <span class="glass px-3 py-1 rounded-full text-xs text-gray-300">Python & Django</span>
+                        <span class="glass px-3 py-1 rounded-full text-xs text-gray-300">Flutter</span>
+                        <span class="glass px-3 py-1 rounded-full text-xs text-gray-300">React</span>
+                        <span class="glass px-3 py-1 rounded-full text-xs text-gray-300">PostgreSQL</span>
+                        <span class="glass px-3 py-1 rounded-full text-xs text-gray-300">AWS</span>
+                    </div>
+                    <div class="mt-6">
+                        <a href="https://www.ralfiz.com" target="_blank"
+                           class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors">
+                            <span>Visit ralfiz.com</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-12">
+            <p class="text-gray-400 mb-6">Ready to transform your cafe operations?</p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="{% url 'demo' %}" class="btn-stunning">Request Free Demo</a>
+                <a href="https://wa.me/{{ company_whatsapp_url }}" target="_blank" class="btn-outline-stunning inline-flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    Chat with Us
+                </a>
             </div>
         </div>
     </div>
