@@ -26,4 +26,5 @@ def site_settings(request):
         'social_facebook': settings.SOCIAL_FACEBOOK,
         'social_youtube': settings.SOCIAL_YOUTUBE,
         'pricing': settings.PRICING,
+        'turnstile_site_key': settings.TURNSTILE_SITE_KEY,
     }

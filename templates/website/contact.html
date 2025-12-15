@@ -44,21 +44,10 @@
                         <textarea name="message" required rows="4" class="form-input-stunning w-full" placeholder="Your message..."></textarea>
                     </div>
 
-                    <!-- Coffee Challenge - Spam Protection -->
-                    <div class="glass rounded-xl p-4 border border-purple-500/30">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-2xl">&#9749;</span>
-                            <span class="text-sm font-medium text-purple-300">Quick Coffee Quiz</span>
-                        </div>
-                        <label class="block text-sm font-medium text-gray-300 mb-2">{{ form.coffee_challenge.label }} *</label>
-                        <input type="text" name="coffee_challenge" required
-                               class="form-input-stunning w-full"
-                               placeholder="{{ form.coffee_challenge.field.widget.attrs.placeholder }}"
-                               autocomplete="off"
-                               value="{{ form.coffee_challenge.value|default:'' }}">
-                        <input type="hidden" name="challenge_id" value="{{ form.challenge_id.value }}">
-                        <p class="text-xs text-gray-500 mt-2">{{ form.coffee_challenge.help_text }}</p>
-                    </div>
+                    <!-- Cloudflare Turnstile -->
+                    {% if turnstile_site_key %}
+                    <div class="cf-turnstile" data-sitekey="{{ turnstile_site_key }}" data-theme="dark"></div>
+                    {% endif %}
 
                     {% if form.errors %}
                     <div class="glass rounded-xl p-4 border-l-4 border-red-500">
@@ -120,4 +109,8 @@
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 {% endblock %}

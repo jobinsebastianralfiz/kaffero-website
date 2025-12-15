@@ -18,7 +18,7 @@ from .models import (
     Testimonial, FAQ, Feature, Screenshot, BlogPost,
     ChatConversation, ChatMessage
 )
-from .forms import DemoRequestForm, ContactForm, NewsletterForm
+from .forms import DemoRequestForm, ContactForm, NewsletterForm, verify_turnstile
 import json
 import uuid
 import re
@@ -100,7 +100,14 @@ def demo(request):
     """Demo request page view."""
     if request.method == 'POST':
         form = DemoRequestForm(request.POST)
-        if form.is_valid():
+
+        # Verify Turnstile
+        turnstile_token = request.POST.get('cf-turnstile-response', '')
+        turnstile_valid = verify_turnstile(turnstile_token)
+
+        if not turnstile_valid:
+            messages.error(request, 'Please complete the security check.')
+        elif form.is_valid():
             demo_request = form.save()
 
             # Email context
@@ -157,7 +164,14 @@ def contact(request):
     """Contact page view."""
     if request.method == 'POST':
         form = ContactForm(request.POST)
-        if form.is_valid():
+
+        # Verify Turnstile
+        turnstile_token = request.POST.get('cf-turnstile-response', '')
+        turnstile_valid = verify_turnstile(turnstile_token)
+
+        if not turnstile_valid:
+            messages.error(request, 'Please complete the security check.')
+        elif form.is_valid():
             contact_message = form.save()
 
             # Email context

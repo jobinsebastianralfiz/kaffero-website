@@ -2,88 +2,37 @@
 Forms for Kaffero showcase website.
 """
 
-import random
+import requests
 from django import forms
+from django.conf import settings
 from .models import DemoRequest, ContactMessage, NewsletterSubscriber
 
 
-# Coffee-themed spam protection challenges
-COFFEE_CHALLENGES = [
-    {
-        'question': 'What hot beverage is made from roasted beans?',
-        'answers': ['coffee', 'cafe', 'kaffee', 'kaapi', 'kofi'],
-        'hint': 'Hint: It starts with C',
-    },
-    {
-        'question': 'Complete the word: Cof___',
-        'answers': ['fee', 'coffee'],
-        'hint': 'Hint: A popular morning drink',
-    },
-    {
-        'question': 'What drink does a barista make?',
-        'answers': ['coffee', 'cafe', 'espresso', 'latte', 'cappuccino'],
-        'hint': 'Hint: Think cafe',
-    },
-    {
-        'question': 'Espresso + steamed milk = ?',
-        'answers': ['latte', 'cafe latte', 'caffe latte'],
-        'hint': 'Hint: Rhymes with "atte"',
-    },
-    {
-        'question': 'What is the Italian word for coffee?',
-        'answers': ['caffe', 'cafe', 'caffè'],
-        'hint': 'Hint: Starts with "caf"',
-    },
-]
+def verify_turnstile(token):
+    """Verify Cloudflare Turnstile token."""
+    if not token:
+        return False
 
+    if not settings.TURNSTILE_SECRET_KEY:
+        # Skip validation if no secret key configured (development)
+        return True
 
-class CoffeeChallengeMixin:
-    """Mixin to add coffee-themed spam protection to forms."""
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-        # Select a random challenge
-        challenge = random.choice(COFFEE_CHALLENGES)
-        challenge_index = COFFEE_CHALLENGES.index(challenge)
-
-        self.fields['coffee_challenge'] = forms.CharField(
-            label=challenge['question'],
-            required=True,
-            widget=forms.TextInput(attrs={
-                'class': 'form-input',
-                'placeholder': challenge['hint'],
-                'autocomplete': 'off',
-            }),
-            help_text=challenge['hint']
+    try:
+        response = requests.post(
+            'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+            data={
+                'secret': settings.TURNSTILE_SECRET_KEY,
+                'response': token,
+            },
+            timeout=10
         )
-
-        # Store challenge index for validation
-        self.fields['challenge_id'] = forms.IntegerField(
-            widget=forms.HiddenInput(),
-            initial=challenge_index
-        )
-
-    def clean(self):
-        cleaned_data = super().clean()
-        answer = cleaned_data.get('coffee_challenge', '').strip().lower()
-        challenge_id = cleaned_data.get('challenge_id', 0)
-
-        if challenge_id < 0 or challenge_id >= len(COFFEE_CHALLENGES):
-            raise forms.ValidationError('Invalid challenge. Please refresh and try again.')
-
-        challenge = COFFEE_CHALLENGES[challenge_id]
-        valid_answers = [a.lower() for a in challenge['answers']]
-
-        if answer not in valid_answers:
-            raise forms.ValidationError(
-                f"Oops! That's not quite right. {challenge['hint']}"
-            )
-
-        return cleaned_data
+        result = response.json()
+        return result.get('success', False)
+    except Exception:
+        return False
 
 
-class DemoRequestForm(CoffeeChallengeMixin, forms.ModelForm):
+class DemoRequestForm(forms.ModelForm):
     """Form for demo requests."""
 
     privacy_agreed = forms.BooleanField(
@@ -136,7 +85,7 @@ class DemoRequestForm(CoffeeChallengeMixin, forms.ModelForm):
         return phone
 
 
-class ContactForm(CoffeeChallengeMixin, forms.ModelForm):
+class ContactForm(forms.ModelForm):
     """Form for contact messages."""
 
     class Meta:
