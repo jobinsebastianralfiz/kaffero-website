@@ -1,0 +1,84 @@
+{% extends "emails/base_email.html" %}
+
+{% block title %}New Contact Message - {{ contact.get_subject_display }}{% endblock %}
+
+{% block content %}
+<!-- Alert Banner -->
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: linear-gradient(135deg, #8b5cf6, #6366f1); border-radius: 12px; margin-bottom: 25px;">
+    <tr>
+        <td style="padding: 20px; text-align: center;">
+            <h2 style="margin: 0; color: #ffffff; font-size: 20px; font-weight: 600;">
+                &#128232; New Contact Message
+            </h2>
+        </td>
+    </tr>
+</table>
+
+<!-- Contact Details -->
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: linear-gradient(135deg, rgba(192, 38, 211, 0.1), rgba(14, 165, 233, 0.1)); border-radius: 12px; border: 1px solid rgba(139, 92, 246, 0.3); margin-bottom: 20px;">
+    <tr>
+        <td style="padding: 25px;">
+            <h3 style="margin: 0 0 20px 0; color: #a78bfa; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">From</h3>
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="padding: 10px 0; color: #9ca3af; font-size: 14px; width: 100px; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">Name:</td>
+                    <td style="padding: 10px 0; color: #ffffff; font-size: 16px; font-weight: 600; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">{{ contact.name }}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 0; color: #9ca3af; font-size: 14px; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">Email:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">
+                        <a href="mailto:{{ contact.email }}" style="color: #a78bfa; text-decoration: none; font-size: 14px;">{{ contact.email }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 0; color: #9ca3af; font-size: 14px; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">Phone:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">
+                        <a href="tel:{{ contact.phone }}" style="color: #10b981; text-decoration: none; font-size: 14px;">{{ contact.phone|default:"Not provided" }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 0; color: #9ca3af; font-size: 14px;">Subject:</td>
+                    <td style="padding: 10px 0;">
+                        <span style="display: inline-block; background-color: rgba(139, 92, 246, 0.3); color: #a78bfa; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500;">{{ contact.get_subject_display }}</span>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Message -->
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: rgba(0,0,0,0.2); border-radius: 12px; border: 1px solid rgba(139, 92, 246, 0.2); margin-bottom: 25px;">
+    <tr>
+        <td style="padding: 25px;">
+            <h3 style="margin: 0 0 15px 0; color: #a78bfa; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Message</h3>
+            <div style="background-color: rgba(0,0,0,0.2); border-radius: 8px; padding: 20px; color: #d1d5db; font-size: 15px; line-height: 1.7; border-left: 3px solid #a78bfa;">
+                {{ contact.message|linebreaks }}
+            </div>
+        </td>
+    </tr>
+</table>
+
+<!-- Quick Actions -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: 25px 0;">
+    <tr>
+        <td style="padding-right: 10px;">
+            <a href="mailto:{{ contact.email }}?subject=Re:%20{{ contact.get_subject_display|urlencode }}" style="display: inline-block; background: linear-gradient(135deg, #c026d3, #0ea5e9); color: #ffffff; text-decoration: none; padding: 14px 24px; border-radius: 50px; font-size: 14px; font-weight: 600;">
+                &#128231; Reply via Email
+            </a>
+        </td>
+        {% if contact.phone %}
+        <td>
+            <a href="https://wa.me/{{ contact.phone|cut:' '|cut:'-'|cut:'+' }}" style="display: inline-block; background: linear-gradient(135deg, #25d366, #128c7e); color: #ffffff; text-decoration: none; padding: 14px 24px; border-radius: 50px; font-size: 14px; font-weight: 600;">
+                WhatsApp
+            </a>
+        </td>
+        {% endif %}
+    </tr>
+</table>
+
+<!-- Timestamp -->
+<p style="margin: 20px 0 0 0; color: #6b7280; font-size: 12px;">
+    Received: {{ contact.created_at|date:"F j, Y, g:i a" }}
+</p>
+{% endblock %}

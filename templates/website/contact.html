@@ -43,6 +43,39 @@
                         <label class="block text-sm font-medium text-gray-300 mb-2">Message *</label>
                         <textarea name="message" required rows="4" class="form-input-stunning w-full" placeholder="Your message..."></textarea>
                     </div>
+
+                    <!-- Coffee Challenge - Spam Protection -->
+                    <div class="glass rounded-xl p-4 border border-purple-500/30">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-2xl">&#9749;</span>
+                            <span class="text-sm font-medium text-purple-300">Quick Coffee Quiz</span>
+                        </div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">{{ form.coffee_challenge.label }} *</label>
+                        <input type="text" name="coffee_challenge" required
+                               class="form-input-stunning w-full"
+                               placeholder="{{ form.coffee_challenge.field.widget.attrs.placeholder }}"
+                               autocomplete="off"
+                               value="{{ form.coffee_challenge.value|default:'' }}">
+                        <input type="hidden" name="challenge_id" value="{{ form.challenge_id.value }}">
+                        <p class="text-xs text-gray-500 mt-2">{{ form.coffee_challenge.help_text }}</p>
+                    </div>
+
+                    {% if form.errors %}
+                    <div class="glass rounded-xl p-4 border-l-4 border-red-500">
+                        <p class="text-red-400 text-sm">Please correct the errors:</p>
+                        <ul class="text-sm text-gray-400 mt-2">
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                <li>{{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+
                     <button type="submit" class="btn-stunning w-full">Send Message</button>
                 </form>
             </div>

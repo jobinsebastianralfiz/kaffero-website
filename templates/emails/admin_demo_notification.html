@@ -1,0 +1,91 @@
+{% extends "emails/base_email.html" %}
+
+{% block title %}New Demo Request - {{ demo_request.cafe_name }}{% endblock %}
+
+{% block content %}
+<!-- Alert Banner -->
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: linear-gradient(135deg, #10b981, #059669); border-radius: 12px; margin-bottom: 25px;">
+    <tr>
+        <td style="padding: 20px; text-align: center;">
+            <h2 style="margin: 0; color: #ffffff; font-size: 20px; font-weight: 600;">
+                &#127881; New Demo Request Received!
+            </h2>
+        </td>
+    </tr>
+</table>
+
+<!-- Cafe Details -->
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: linear-gradient(135deg, rgba(192, 38, 211, 0.1), rgba(14, 165, 233, 0.1)); border-radius: 12px; border: 1px solid rgba(139, 92, 246, 0.3); margin-bottom: 20px;">
+    <tr>
+        <td style="padding: 25px;">
+            <h3 style="margin: 0 0 20px 0; color: #a78bfa; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Cafe Information</h3>
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="padding: 10px 0; color: #9ca3af; font-size: 14px; width: 140px; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">Cafe Name:</td>
+                    <td style="padding: 10px 0; color: #ffffff; font-size: 16px; font-weight: 600; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">{{ demo_request.cafe_name }}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 0; color: #9ca3af; font-size: 14px; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">City:</td>
+                    <td style="padding: 10px 0; color: #ffffff; font-size: 14px; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">{{ demo_request.city }}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 0; color: #9ca3af; font-size: 14px; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">Number of Tables:</td>
+                    <td style="padding: 10px 0; color: #ffffff; font-size: 14px; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">{{ demo_request.num_tables|default:"Not specified" }}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 0; color: #9ca3af; font-size: 14px;">Lead Source:</td>
+                    <td style="padding: 10px 0; color: #ffffff; font-size: 14px;">{{ demo_request.get_source_display }}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Contact Details -->
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: rgba(0,0,0,0.2); border-radius: 12px; border: 1px solid rgba(139, 92, 246, 0.2); margin-bottom: 25px;">
+    <tr>
+        <td style="padding: 25px;">
+            <h3 style="margin: 0 0 20px 0; color: #a78bfa; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Contact Person</h3>
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="padding: 10px 0; color: #9ca3af; font-size: 14px; width: 140px; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">Name:</td>
+                    <td style="padding: 10px 0; color: #ffffff; font-size: 16px; font-weight: 600; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">{{ demo_request.contact_name }}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 0; color: #9ca3af; font-size: 14px; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">Phone:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid rgba(139, 92, 246, 0.1);">
+                        <a href="tel:{{ demo_request.phone }}" style="color: #10b981; text-decoration: none; font-size: 14px; font-weight: 500;">{{ demo_request.phone }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 0; color: #9ca3af; font-size: 14px;">Email:</td>
+                    <td style="padding: 10px 0;">
+                        <a href="mailto:{{ demo_request.email }}" style="color: #a78bfa; text-decoration: none; font-size: 14px;">{{ demo_request.email|default:"Not provided" }}</a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Quick Actions -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: 25px 0;">
+    <tr>
+        <td style="padding-right: 10px;">
+            <a href="tel:{{ demo_request.phone }}" style="display: inline-block; background: linear-gradient(135deg, #10b981, #059669); color: #ffffff; text-decoration: none; padding: 14px 24px; border-radius: 50px; font-size: 14px; font-weight: 600;">
+                &#128222; Call Now
+            </a>
+        </td>
+        <td style="padding-right: 10px;">
+            <a href="https://wa.me/{{ demo_request.phone|cut:' '|cut:'-'|cut:'+' }}?text=Hi%20{{ demo_request.contact_name|urlencode }}%2C%20this%20is%20from%20Kaffero.%20Thank%20you%20for%20your%20demo%20request%20for%20{{ demo_request.cafe_name|urlencode }}!" style="display: inline-block; background: linear-gradient(135deg, #25d366, #128c7e); color: #ffffff; text-decoration: none; padding: 14px 24px; border-radius: 50px; font-size: 14px; font-weight: 600;">
+                WhatsApp
+            </a>
+        </td>
+    </tr>
+</table>
+
+<!-- Timestamp -->
+<p style="margin: 20px 0 0 0; color: #6b7280; font-size: 12px;">
+    Request received: {{ demo_request.created_at|date:"F j, Y, g:i a" }}
+</p>
+{% endblock %}

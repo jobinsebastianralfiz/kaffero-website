@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Kaffero{% endblock %}</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f0f1a;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #0f0f1a;">
+        <tr>
+            <td align="center" style="padding: 40px 20px;">
+                <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="max-width: 600px; width: 100%;">
+
+                    <!-- Header -->
+                    <tr>
+                        <td align="center" style="padding: 30px 40px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 16px 16px 0 0;">
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                                <tr>
+                                    <td style="padding-right: 12px;">
+                                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #c026d3, #0ea5e9); border-radius: 12px; display: inline-block; text-align: center; line-height: 50px; font-size: 28px;">
+                                            &#9749;
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">Kaffero</h1>
+                                        <p style="margin: 4px 0 0 0; color: #a78bfa; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Run Your Cafe Like a Pro</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Main Content -->
+                    <tr>
+                        <td style="background-color: #1a1a2e; padding: 40px; border-left: 1px solid rgba(139, 92, 246, 0.2); border-right: 1px solid rgba(139, 92, 246, 0.2);">
+                            {% block content %}{% endblock %}
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%); padding: 30px 40px; border-radius: 0 0 16px 16px; border-left: 1px solid rgba(139, 92, 246, 0.2); border-right: 1px solid rgba(139, 92, 246, 0.2); border-bottom: 1px solid rgba(139, 92, 246, 0.2);">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                                <tr>
+                                    <td align="center">
+                                        <p style="margin: 0 0 15px 0; color: #9ca3af; font-size: 14px;">
+                                            Need help? Contact us anytime
+                                        </p>
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="padding: 0 10px;">
+                                                    <a href="mailto:hello@kaffero.in" style="color: #a78bfa; text-decoration: none; font-size: 14px;">hello@kaffero.in</a>
+                                                </td>
+                                                <td style="color: #4b5563;">|</td>
+                                                <td style="padding: 0 10px;">
+                                                    <a href="https://wa.me/919895663498" style="color: #a78bfa; text-decoration: none; font-size: 14px;">WhatsApp</a>
+                                                </td>
+                                                <td style="color: #4b5563;">|</td>
+                                                <td style="padding: 0 10px;">
+                                                    <a href="tel:+919895663498" style="color: #a78bfa; text-decoration: none; font-size: 14px;">+91 98956 63498</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" style="padding-top: 25px; border-top: 1px solid rgba(139, 92, 246, 0.1); margin-top: 20px;">
+                                        <p style="margin: 0; color: #6b7280; font-size: 12px;">
+                                            &copy; 2024 Ralfiz Technologies. All rights reserved.<br>
+                                            Kerala, India
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

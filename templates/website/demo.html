@@ -92,6 +92,22 @@
                         </select>
                     </div>
 
+                    <!-- Coffee Challenge - Spam Protection -->
+                    <div class="glass rounded-xl p-4 border border-purple-500/30">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-2xl">&#9749;</span>
+                            <span class="text-sm font-medium text-purple-300">Quick Coffee Quiz</span>
+                        </div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">{{ form.coffee_challenge.label }} *</label>
+                        <input type="text" name="coffee_challenge" required
+                               class="form-input-stunning w-full"
+                               placeholder="{{ form.coffee_challenge.field.widget.attrs.placeholder }}"
+                               autocomplete="off"
+                               value="{{ form.coffee_challenge.value|default:'' }}">
+                        <input type="hidden" name="challenge_id" value="{{ form.challenge_id.value }}">
+                        <p class="text-xs text-gray-500 mt-2">{{ form.coffee_challenge.help_text }}</p>
+                    </div>
+
                     <div class="flex items-center gap-3">
                         <input type="checkbox" name="privacy_agreed" id="privacy" required
                                class="w-5 h-5 rounded border-gray-600 bg-gray-800 text-primary-500 focus:ring-primary-500">

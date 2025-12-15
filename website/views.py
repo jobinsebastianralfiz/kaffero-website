@@ -5,11 +5,13 @@ Views for Kaffero showcase website.
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.http import JsonResponse
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMultiAlternatives
 from django.conf import settings
 from django.views.decorators.http import require_POST
 from django.views.decorators.cache import cache_page
 from django.http import HttpResponse
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 from .models import (
     DemoRequest, ContactMessage, NewsletterSubscriber,
@@ -20,6 +22,32 @@ from .forms import DemoRequestForm, ContactForm, NewsletterForm
 import json
 import uuid
 import re
+
+
+def send_html_email(subject, template_name, context, to_email, from_email=None):
+    """Send a beautiful HTML email with plain text fallback."""
+    if from_email is None:
+        from_email = settings.DEFAULT_FROM_EMAIL
+
+    # Render HTML content
+    html_content = render_to_string(template_name, context)
+    text_content = strip_tags(html_content)
+
+    # Create email with both HTML and plain text
+    email = EmailMultiAlternatives(
+        subject=subject,
+        body=text_content,
+        from_email=from_email,
+        to=[to_email] if isinstance(to_email, str) else to_email
+    )
+    email.attach_alternative(html_content, "text/html")
+
+    try:
+        email.send(fail_silently=False)
+        return True
+    except Exception as e:
+        print(f"Email send error: {e}")
+        return False
 
 
 def home(request):
@@ -75,29 +103,25 @@ def demo(request):
         if form.is_valid():
             demo_request = form.save()
 
-            # Send notification email
-            try:
-                send_mail(
-                    subject=f'New Demo Request: {demo_request.cafe_name}',
-                    message=f"""
-New demo request received:
+            # Email context
+            email_context = {'demo_request': demo_request}
 
-Cafe: {demo_request.cafe_name}
-Contact: {demo_request.contact_name}
-Phone: {demo_request.phone}
-Email: {demo_request.email}
-City: {demo_request.city}
-Tables: {demo_request.num_tables or 'Not specified'}
-Source: {demo_request.get_source_display()}
+            # Send beautiful HTML email to admin
+            send_html_email(
+                subject=f'New Demo Request: {demo_request.cafe_name}',
+                template_name='emails/admin_demo_notification.html',
+                context=email_context,
+                to_email=settings.ADMIN_EMAIL
+            )
 
-Time: {demo_request.created_at}
-                    """,
-                    from_email=settings.DEFAULT_FROM_EMAIL,
-                    recipient_list=[settings.ADMIN_EMAIL],
-                    fail_silently=True,
+            # Send confirmation email to user (if email provided)
+            if demo_request.email:
+                send_html_email(
+                    subject=f'Demo Request Confirmed - {demo_request.cafe_name}',
+                    template_name='emails/demo_confirmation.html',
+                    context=email_context,
+                    to_email=demo_request.email
                 )
-            except Exception:
-                pass
 
             return redirect('demo_thank_you', pk=demo_request.pk)
     else:
@@ -136,27 +160,24 @@ def contact(request):
         if form.is_valid():
             contact_message = form.save()
 
-            # Send notification email
-            try:
-                send_mail(
-                    subject=f'Contact Form: {contact_message.get_subject_display()}',
-                    message=f"""
-New contact message:
+            # Email context
+            email_context = {'contact': contact_message}
 
-From: {contact_message.name}
-Email: {contact_message.email}
-Phone: {contact_message.phone or 'Not provided'}
-Subject: {contact_message.get_subject_display()}
+            # Send beautiful HTML email to admin
+            send_html_email(
+                subject=f'Contact Form: {contact_message.get_subject_display()}',
+                template_name='emails/admin_contact_notification.html',
+                context=email_context,
+                to_email=settings.ADMIN_EMAIL
+            )
 
-Message:
-{contact_message.message}
-                    """,
-                    from_email=settings.DEFAULT_FROM_EMAIL,
-                    recipient_list=[settings.ADMIN_EMAIL],
-                    fail_silently=True,
-                )
-            except Exception:
-                pass
+            # Send confirmation email to user
+            send_html_email(
+                subject='We received your message - Kaffero',
+                template_name='emails/contact_confirmation.html',
+                context=email_context,
+                to_email=contact_message.email
+            )
 
             messages.success(request, 'Thank you! Your message has been sent successfully.')
             return redirect('contact')
