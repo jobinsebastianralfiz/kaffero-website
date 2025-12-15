@@ -1,0 +1,88 @@
+{% extends 'website/base.html' %}
+{% block title %}Features - {{ site_name }}{% endblock %}
+{% block content %}
+<section class="relative pt-32 pb-20 overflow-hidden">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6">
+                <span class="text-primary-400">&#10024;</span>
+                <span class="text-sm text-gray-300">Powerful Features</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">Everything Your Cafe <span class="gradient-text">Needs</span></h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">Powerful features. Simple interface. Happy customers.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass rounded-2xl p-8 card-hover group">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-3xl">&#128203;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">Order Management</h3>
+                <p class="text-gray-400 mb-4">Take orders in seconds. Track everything in real-time. Dine-in, takeaway, delivery.</p>
+            </div>
+            <div class="glass rounded-2xl p-8 card-hover group">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-3xl">&#129693;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">Table Management</h3>
+                <p class="text-gray-400 mb-4">Visual floor map with real-time status. QR codes for every table.</p>
+            </div>
+            <div class="glass rounded-2xl p-8 card-hover group">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-3xl">&#128104;&#8205;&#127859;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">Kitchen Display</h3>
+                <p class="text-gray-400 mb-4">Real-time orders on screen. Timers, bumping, audio alerts.</p>
+            </div>
+            <div class="glass rounded-2xl p-8 card-hover group">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-3xl">&#128241;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">Waiter App</h3>
+                <p class="text-gray-400 mb-4">Android app for tableside ordering. Works offline.</p>
+            </div>
+            <div class="glass rounded-2xl p-8 card-hover group">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-3xl">&#128242;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">QR Ordering</h3>
+                <p class="text-gray-400 mb-4">Customers scan and order from their phone. No app needed.</p>
+            </div>
+            <div class="glass rounded-2xl p-8 card-hover group">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-500/20 to-red-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-3xl">&#128200;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">Reports & Analytics</h3>
+                <p class="text-gray-400 mb-4">Sales reports, item performance, staff tracking. Export to Excel.</p>
+            </div>
+            <div class="glass rounded-2xl p-8 card-hover group">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500/20 to-green-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-3xl">&#128230;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">Inventory</h3>
+                <p class="text-gray-400 mb-4">Track stock levels, get low stock alerts, manage purchases.</p>
+            </div>
+            <div class="glass rounded-2xl p-8 card-hover group">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-500/20 to-orange-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-3xl">&#128179;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">Payments</h3>
+                <p class="text-gray-400 mb-4">Cash, card, UPI. Split bills, discounts, digital receipts.</p>
+            </div>
+            <div class="glass rounded-2xl p-8 card-hover group">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-3xl">&#128424;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">Thermal Printing</h3>
+                <p class="text-gray-400 mb-4">Auto-print receipts and KOTs to thermal printers.</p>
+            </div>
+        </div>
+
+        <div class="text-center mt-16">
+            <a href="{% url 'demo' %}" class="btn-stunning text-lg px-10 py-5">Request Free Demo</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

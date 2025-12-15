@@ -1,0 +1,445 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section - Stunning -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <!-- Animated Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Grid Pattern Background -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8 animate-slide-up">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="text-sm text-gray-300">Now available across India</span>
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6 leading-tight">
+                <span class="block text-white text-shadow-glow">Run Your Cafe</span>
+                <span class="block gradient-text">Like a Pro</span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+                The most beautiful cafe management system ever built.
+                <span class="text-white">Orders, tables, kitchen, payments</span> &mdash;
+                all in one stunning platform.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+                <a href="{% url 'demo' %}" class="btn-stunning text-lg px-10 py-5 inline-flex items-center justify-center gap-2">
+                    <span>Start Free Demo</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+                <a href="#features" class="btn-outline-stunning text-lg px-10 py-5 inline-flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Watch Demo</span>
+                </a>
+            </div>
+
+            <!-- Hero Visual - Floating Dashboard -->
+            <div class="relative max-w-5xl mx-auto">
+                <!-- Main Dashboard Card -->
+                <div class="glass rounded-3xl p-2 neon-border floating-card">
+                    <div class="bg-gradient-to-br from-gray-900/80 to-gray-800/80 rounded-2xl p-8 min-h-[400px] relative overflow-hidden">
+                        <!-- Mock Dashboard Header -->
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="flex items-center gap-4">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="text-sm text-gray-500">kaffero.in/dashboard</div>
+                        </div>
+
+                        <!-- Mock Dashboard Content -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                            <div class="glass rounded-xl p-4">
+                                <div class="text-2xl mb-2">&#128176;</div>
+                                <div class="text-sm text-gray-400">Today's Sales</div>
+                                <div class="text-xl font-bold gradient-text">&#8377;24,580</div>
+                            </div>
+                            <div class="glass rounded-xl p-4">
+                                <div class="text-2xl mb-2">&#128203;</div>
+                                <div class="text-sm text-gray-400">Orders</div>
+                                <div class="text-xl font-bold text-white">47</div>
+                            </div>
+                            <div class="glass rounded-xl p-4">
+                                <div class="text-2xl mb-2">&#129693;</div>
+                                <div class="text-sm text-gray-400">Active Tables</div>
+                                <div class="text-xl font-bold text-green-400">12/20</div>
+                            </div>
+                            <div class="glass rounded-xl p-4">
+                                <div class="text-2xl mb-2">&#128200;</div>
+                                <div class="text-sm text-gray-400">Avg. Order</div>
+                                <div class="text-xl font-bold text-accent-400">&#8377;523</div>
+                            </div>
+                        </div>
+
+                        <!-- Mock Chart Area -->
+                        <div class="glass rounded-xl p-6 h-40 flex items-end justify-between gap-2">
+                            <div class="w-full bg-gradient-to-t from-primary-500/50 to-transparent rounded-t-lg" style="height: 40%"></div>
+                            <div class="w-full bg-gradient-to-t from-primary-500/50 to-transparent rounded-t-lg" style="height: 60%"></div>
+                            <div class="w-full bg-gradient-to-t from-primary-500/50 to-transparent rounded-t-lg" style="height: 80%"></div>
+                            <div class="w-full bg-gradient-to-t from-accent-500/50 to-transparent rounded-t-lg" style="height: 100%"></div>
+                            <div class="w-full bg-gradient-to-t from-primary-500/50 to-transparent rounded-t-lg" style="height: 75%"></div>
+                            <div class="w-full bg-gradient-to-t from-primary-500/50 to-transparent rounded-t-lg" style="height: 90%"></div>
+                            <div class="w-full bg-gradient-to-t from-primary-500/50 to-transparent rounded-t-lg" style="height: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Side Cards -->
+                <div class="absolute -left-16 top-1/4 glass rounded-2xl p-4 floating-card-delayed hidden lg:block">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+                            <span class="text-green-400">&#10003;</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium">New Order</div>
+                            <div class="text-xs text-gray-400">Table 7 - &#8377;850</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute -right-16 bottom-1/4 glass rounded-2xl p-4 floating-card hidden lg:block">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center">
+                            <span class="text-primary-400">&#128276;</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium">Kitchen Ready</div>
+                            <div class="text-xs text-gray-400">Order #1247</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-slow">
+        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
+    </div>
+</section>
+
+<!-- Trust Section -->
+<section class="py-16 relative">
+    <div class="section-divider"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <p class="text-center text-gray-500 mb-8">Trusted by forward-thinking cafes</p>
+        <div class="flex flex-wrap justify-center items-center gap-12 opacity-40">
+            <div class="text-2xl font-display font-bold text-gray-400 hover:text-white transition">Brew & Bites</div>
+            <div class="text-2xl font-display font-bold text-gray-400 hover:text-white transition">Coffee Culture</div>
+            <div class="text-2xl font-display font-bold text-gray-400 hover:text-white transition">Bean Scene</div>
+            <div class="text-2xl font-display font-bold text-gray-400 hover:text-white transition">Mocha House</div>
+            <div class="text-2xl font-display font-bold text-gray-400 hover:text-white transition">Daily Grind</div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem Section -->
+<section class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">
+                Running a cafe is <span class="gradient-text">hard enough</span>
+            </h2>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                Your software shouldn't make it harder
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass rounded-2xl p-8 card-hover animate-on-scroll">
+                <div class="icon-box mb-6">
+                    <span class="text-2xl">&#128561;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-4">Lost Orders</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Paper slips get lost. Verbal orders are forgotten. During rush hour, chaos takes over.
+                </p>
+            </div>
+
+            <div class="glass rounded-2xl p-8 card-hover animate-on-scroll" style="animation-delay: 0.1s">
+                <div class="icon-box mb-6">
+                    <span class="text-2xl">&#128221;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-4">Paper Nightmare</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Bills, KOTs, receipts everywhere. End of day reconciliation becomes a dreaded task.
+                </p>
+            </div>
+
+            <div class="glass rounded-2xl p-8 card-hover animate-on-scroll" style="animation-delay: 0.2s">
+                <div class="icon-box mb-6">
+                    <span class="text-2xl">&#128184;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-4">Cash Confusion</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Money doesn't match. Staff errors pile up. No visibility into what's happening.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-20 animate-on-scroll">
+            <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6">
+                <span class="text-primary-400">&#10024;</span>
+                <span class="text-sm text-gray-300">Powerful Features</span>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">
+                Everything you need.<br><span class="gradient-text">Nothing you don't.</span>
+            </h2>
+        </div>
+
+        <!-- Feature Cards Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Feature 1 -->
+            <div class="glass rounded-2xl p-8 card-hover group animate-on-scroll">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-2xl">&#128203;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">Smart Orders</h3>
+                <p class="text-gray-400 mb-4">Take orders in seconds. Modifications, notes, everything tracked beautifully.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs glass rounded-full px-3 py-1">Dine-in</span>
+                    <span class="text-xs glass rounded-full px-3 py-1">Takeaway</span>
+                    <span class="text-xs glass rounded-full px-3 py-1">Delivery</span>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="glass rounded-2xl p-8 card-hover group animate-on-scroll">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-2xl">&#129693;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">Table Management</h3>
+                <p class="text-gray-400 mb-4">Visual floor map with real-time status. QR codes for every table.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs glass rounded-full px-3 py-1">Floor Map</span>
+                    <span class="text-xs glass rounded-full px-3 py-1">QR Codes</span>
+                    <span class="text-xs glass rounded-full px-3 py-1">Status</span>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="glass rounded-2xl p-8 card-hover group animate-on-scroll">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-2xl">&#128104;&#8205;&#127859;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">Kitchen Display</h3>
+                <p class="text-gray-400 mb-4">Real-time orders on screen. No more paper tickets flying around.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs glass rounded-full px-3 py-1">Live Updates</span>
+                    <span class="text-xs glass rounded-full px-3 py-1">Timers</span>
+                    <span class="text-xs glass rounded-full px-3 py-1">Alerts</span>
+                </div>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="glass rounded-2xl p-8 card-hover group animate-on-scroll">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-2xl">&#128241;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">Waiter App</h3>
+                <p class="text-gray-400 mb-4">Take orders tableside. Fast, efficient, professional.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs glass rounded-full px-3 py-1">Android</span>
+                    <span class="text-xs glass rounded-full px-3 py-1">Offline</span>
+                    <span class="text-xs glass rounded-full px-3 py-1">Fast</span>
+                </div>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="glass rounded-2xl p-8 card-hover group animate-on-scroll">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-2xl">&#128242;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">QR Ordering</h3>
+                <p class="text-gray-400 mb-4">Customers scan, browse, and order. No app download needed.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs glass rounded-full px-3 py-1">Self-order</span>
+                    <span class="text-xs glass rounded-full px-3 py-1">No App</span>
+                    <span class="text-xs glass rounded-full px-3 py-1">Fast</span>
+                </div>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="glass rounded-2xl p-8 card-hover group animate-on-scroll">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-500/20 to-red-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-2xl">&#128200;</span>
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">Reports & Analytics</h3>
+                <p class="text-gray-400 mb-4">Know your numbers. Track what sells, what doesn't.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs glass rounded-full px-3 py-1">Real-time</span>
+                    <span class="text-xs glass rounded-full px-3 py-1">Export</span>
+                    <span class="text-xs glass rounded-full px-3 py-1">Insights</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="{% url 'features' %}" class="btn-outline-stunning inline-flex items-center gap-2">
+                <span>View All Features</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-primary-900/20 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">
+                Go live in <span class="gradient-text">3 simple steps</span>
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center animate-on-scroll">
+                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-3xl font-bold neon-border">
+                    1
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">Request Demo</h3>
+                <p class="text-gray-400">
+                    Fill a simple form. We create your personalized demo with your cafe name.
+                </p>
+            </div>
+
+            <div class="text-center animate-on-scroll" style="animation-delay: 0.1s">
+                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-3xl font-bold neon-border">
+                    2
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">We Set Up</h3>
+                <p class="text-gray-400">
+                    Our team configures your menu, tables, staff, and printers. You just approve.
+                </p>
+            </div>
+
+            <div class="text-center animate-on-scroll" style="animation-delay: 0.2s">
+                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-3xl font-bold neon-border">
+                    3
+                </div>
+                <h3 class="text-xl font-display font-bold mb-3">Go Live</h3>
+                <p class="text-gray-400">
+                    Start taking orders. Delight customers. Watch your cafe transform.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Preview -->
+<section class="py-24 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="glass rounded-3xl p-12 neon-border animate-on-scroll">
+            <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6">
+                <span class="text-green-400">&#128176;</span>
+                <span class="text-sm text-gray-300">Transparent Pricing</span>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">
+                Simple, <span class="gradient-text">honest</span> pricing
+            </h2>
+            <p class="text-gray-400 mb-8 text-lg">No hidden fees. No surprises. Ever.</p>
+
+            <div class="text-6xl font-display font-bold gradient-text mb-4">
+                &#8377;35,000
+            </div>
+            <p class="text-gray-400 mb-8">One-time license &bull; Free setup &bull; 1 year free support</p>
+            <p class="text-sm text-gray-500 mb-6">Annual renewal: 20% + server/domain charges</p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="{% url 'pricing' %}" class="btn-stunning">View All Plans</a>
+                <a href="{% url 'demo' %}" class="btn-outline-stunning">Start Free Demo</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-900/50 via-transparent to-accent-900/50"></div>
+    <div class="orb" style="width: 500px; height: 500px; background: #c026d3; bottom: -200px; left: -100px;"></div>
+    <div class="orb" style="width: 400px; height: 400px; background: #0ea5e9; top: -100px; right: -100px;"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+        <div class="animate-on-scroll">
+            <h2 class="text-4xl md:text-6xl font-display font-bold mb-6 text-shadow-glow">
+                Ready to transform<br>your cafe?
+            </h2>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                Join hundreds of cafes already using Kaffero to serve customers better, faster, and smarter.
+            </p>
+            <a href="{% url 'demo' %}" class="btn-stunning text-xl px-12 py-6 inline-flex items-center gap-3">
+                <span>Get Your Free Demo</span>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+            </a>
+            <p class="mt-6 text-gray-500">
+                Or call us: <a href="tel:{{ company_phone }}" class="text-white hover:text-primary-400 transition">{{ company_phone }}</a>
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    // Parallax effect for orbs
+    document.addEventListener('mousemove', (e) => {
+        const orbs = document.querySelectorAll('.orb');
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        orbs.forEach((orb, index) => {
+            const speed = (index + 1) * 20;
+            orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+        });
+    });
+
+    // Counter animation
+    function animateCounter(element, target) {
+        let current = 0;
+        const increment = target / 50;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                element.textContent = target.toLocaleString();
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current).toLocaleString();
+            }
+        }, 20);
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,197 @@
+{% extends 'website/base.html' %}
+
+{% block title %}Pricing - {{ site_name }}{% endblock %}
+
+{% block content %}
+<section class="relative pt-32 pb-20 overflow-hidden">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6">
+                <span class="text-green-400">&#128176;</span>
+                <span class="text-sm text-gray-300">Simple Pricing</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">
+                Transparent <span class="gradient-text">pricing</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                One-time license. No monthly fees. No hidden costs. Ever.
+            </p>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <!-- Starter -->
+            <div class="glass rounded-3xl p-8 card-hover">
+                <div class="text-center mb-6">
+                    <h3 class="text-xl font-display font-bold mb-2">Starter</h3>
+                    <p class="text-sm text-gray-400">For small cafes</p>
+                </div>
+                <div class="text-center mb-6">
+                    <span class="text-4xl font-display font-bold">&#8377;35,000</span>
+                    <span class="text-gray-400">/one-time</span>
+                </div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        1 Outlet
+                    </li>
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Up to 5 tables
+                    </li>
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        3 users
+                    </li>
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        1 year free support
+                    </li>
+                </ul>
+                <a href="{% url 'demo' %}" class="btn-outline-stunning w-full text-center block">Get Started</a>
+            </div>
+
+            <!-- Standard - Popular -->
+            <div class="glass rounded-3xl p-8 card-hover neon-border relative">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+                    <span class="bg-gradient-to-r from-primary-500 to-accent-500 text-white text-xs font-bold px-4 py-1 rounded-full">
+                        Most Popular
+                    </span>
+                </div>
+                <div class="text-center mb-6">
+                    <h3 class="text-xl font-display font-bold mb-2">Standard</h3>
+                    <p class="text-sm text-gray-400">For growing cafes</p>
+                </div>
+                <div class="text-center mb-6">
+                    <span class="text-4xl font-display font-bold gradient-text">&#8377;65,000</span>
+                    <span class="text-gray-400">/one-time</span>
+                </div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Up to 3 Outlets
+                    </li>
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Up to 20 tables
+                    </li>
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        10 users
+                    </li>
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        1 year free support
+                    </li>
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Priority support
+                    </li>
+                </ul>
+                <a href="{% url 'demo' %}" class="btn-stunning w-full text-center block">Get Started</a>
+            </div>
+
+            <!-- Premium -->
+            <div class="glass rounded-3xl p-8 card-hover">
+                <div class="text-center mb-6">
+                    <h3 class="text-xl font-display font-bold mb-2">Premium</h3>
+                    <p class="text-sm text-gray-400">For cafe chains</p>
+                </div>
+                <div class="text-center mb-6">
+                    <span class="text-4xl font-display font-bold">&#8377;95,000</span>
+                    <span class="text-gray-400">/one-time</span>
+                </div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Unlimited Outlets
+                    </li>
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Unlimited tables
+                    </li>
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Unlimited users
+                    </li>
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        1 year free support
+                    </li>
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        On-site setup
+                    </li>
+                </ul>
+                <a href="{% url 'demo' %}" class="btn-outline-stunning w-full text-center block">Get Started</a>
+            </div>
+        </div>
+
+        <!-- All Plans Include -->
+        <div class="mt-20 text-center">
+            <h2 class="text-2xl font-display font-bold mb-8">All plans include</h2>
+            <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+                <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    Admin Dashboard
+                </span>
+                <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    Waiter App
+                </span>
+                <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    Kitchen Display
+                </span>
+                <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    QR Ordering
+                </span>
+                <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    Free Setup
+                </span>
+                <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    Free Updates
+                </span>
+            </div>
+        </div>
+
+        <!-- Renewal Info -->
+        <div class="mt-16 glass rounded-2xl p-8 max-w-3xl mx-auto">
+            <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 flex items-center justify-center flex-shrink-0">
+                    <span class="text-2xl">&#128260;</span>
+                </div>
+                <div>
+                    <h3 class="text-xl font-display font-bold mb-2">Annual Renewal</h3>
+                    <p class="text-gray-400 mb-4">
+                        After your initial support period, continue with our annual maintenance plan:
+                    </p>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-center gap-2 text-gray-300">
+                            <svg class="w-4 h-4 text-primary-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span><strong class="text-white">20% of license fee</strong> annually for support & updates</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-300">
+                            <svg class="w-4 h-4 text-primary-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span><strong class="text-white">Server charges</strong> billed at actuals (cloud hosting)</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-300">
+                            <svg class="w-4 h-4 text-primary-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span><strong class="text-white">Domain charges</strong> billed at actuals (if applicable)</span>
+                        </li>
+                    </ul>
+                    <p class="text-xs text-gray-500 mt-4">
+                        Example: Starter plan renewal = &#8377;7,000/year + server & domain costs
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'website/base.html' %}
+
+{% block title %}Demo Request Received - {{ site_name }}{% endblock %}
+
+{% block content %}
+<section class="min-h-screen flex items-center justify-center py-20">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+        <div class="glass rounded-3xl p-12 neon-border">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-green-500/20 flex items-center justify-center">
+                <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+            </div>
+
+            <h1 class="text-3xl md:text-4xl font-display font-bold mb-4">
+                Demo Request <span class="gradient-text">Received!</span>
+            </h1>
+
+            <p class="text-xl text-gray-400 mb-8">
+                Thanks {{ demo_request.contact_name }}! We're setting up your Kaffero demo.
+            </p>
+
+            <div class="glass rounded-2xl p-6 text-left mb-8">
+                <h2 class="text-lg font-bold mb-4">What happens next?</h2>
+                <div class="space-y-4">
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 rounded-full bg-primary-500/20 flex items-center justify-center flex-shrink-0">
+                            <span class="text-primary-400 font-bold">1</span>
+                        </div>
+                        <div>
+                            <p class="font-medium">We'll create your private demo</p>
+                            <p class="text-sm text-gray-400">With "{{ demo_request.cafe_name }}" branding</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 rounded-full bg-primary-500/20 flex items-center justify-center flex-shrink-0">
+                            <span class="text-primary-400 font-bold">2</span>
+                        </div>
+                        <div>
+                            <p class="font-medium">You'll receive login details via WhatsApp</p>
+                            <p class="text-sm text-gray-400">Within 2-4 hours (business hours)</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 rounded-full bg-primary-500/20 flex items-center justify-center flex-shrink-0">
+                            <span class="text-primary-400 font-bold">3</span>
+                        </div>
+                        <div>
+                            <p class="font-medium">Explore admin, waiter app, kitchen & QR</p>
+                            <p class="text-sm text-gray-400">7-day full access included</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="{% url 'home' %}" class="btn-outline-stunning">Back to Home</a>
+                <a href="{% url 'features' %}" class="btn-stunning">Explore Features</a>
+            </div>
+
+            <p class="mt-8 text-sm text-gray-500">
+                Questions? WhatsApp us at {{ company_whatsapp }}
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}

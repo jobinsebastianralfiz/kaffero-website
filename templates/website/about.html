@@ -1,0 +1,46 @@
+{% extends 'website/base.html' %}
+
+{% block title %}About - {{ site_name }}{% endblock %}
+
+{% block content %}
+<section class="relative pt-32 pb-20 overflow-hidden">
+    <div class="orb orb-1"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">
+                About <span class="gradient-text">{{ site_name }}</span>
+            </h1>
+        </div>
+
+        <div class="glass rounded-3xl p-8 md:p-12 space-y-8">
+            <div>
+                <h2 class="text-2xl font-display font-bold mb-4 gradient-text">Our Story</h2>
+                <p class="text-gray-400 leading-relaxed">
+                    Kaffero was born from watching cafe owners struggle with outdated systems and paper chaos.
+                    We believe running a cafe should be as smooth as your morning latte &mdash; not a source of daily stress.
+                </p>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-display font-bold mb-4 gradient-text">Our Mission</h2>
+                <p class="text-gray-400 leading-relaxed">
+                    To empower cafe owners with beautiful, reliable technology that simplifies operations and lets
+                    passion for coffee take center stage.
+                </p>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-display font-bold mb-4 gradient-text">Built by {{ company_name }}</h2>
+                <p class="text-gray-400 leading-relaxed">
+                    {{ company_name }} is a web and app development company specializing in Django and Flutter solutions.
+                    We build software that businesses love to use.
+                </p>
+            </div>
+
+            <div class="text-center pt-8">
+                <a href="{% url 'demo' %}" class="btn-stunning">Request Demo</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

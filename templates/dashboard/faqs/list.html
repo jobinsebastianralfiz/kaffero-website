@@ -1,0 +1,35 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<div class="flex items-center justify-end mb-6">
+    <a href="{% url 'dashboard:faq_create' %}" class="px-6 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg font-medium">+ Add FAQ</a>
+</div>
+
+<div class="space-y-4">
+    {% for faq in faqs %}
+    <div class="glass rounded-2xl p-6 hover:border-primary-500/30 transition-all">
+        <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center text-xl shrink-0">❓</div>
+            <div class="flex-1">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="px-2 py-0.5 rounded bg-primary-500/10 text-primary-400 text-xs">{{ faq.get_category_display }}</span>
+                    <span class="text-xs text-gray-500">Order: {{ faq.order }}</span>
+                    {% if not faq.is_active %}<span class="px-2 py-0.5 rounded bg-gray-500/20 text-gray-400 text-xs">Inactive</span>{% endif %}
+                </div>
+                <h3 class="font-semibold text-white mb-2">{{ faq.question }}</h3>
+                <p class="text-gray-400 text-sm">{{ faq.answer|truncatewords:30 }}</p>
+            </div>
+            <div class="flex gap-2">
+                <a href="{% url 'dashboard:faq_edit' faq.pk %}" class="px-4 py-2 glass rounded-lg text-primary-400">Edit</a>
+                <form method="post" action="{% url 'dashboard:faq_delete' faq.pk %}" onsubmit="return confirm('Delete?')">
+                    {% csrf_token %}
+                    <button type="submit" class="px-4 py-2 text-red-400 hover:bg-red-500/10 rounded-lg">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="glass rounded-2xl p-12 text-center text-gray-500">No FAQs yet. <a href="{% url 'dashboard:faq_create' %}" class="text-primary-400">Add your first FAQ</a></div>
+    {% endfor %}
+</div>
+{% endblock %}

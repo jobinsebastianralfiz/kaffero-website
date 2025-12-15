@@ -1,0 +1,130 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="glass rounded-2xl p-6 hover:border-primary-500/30 transition-all group">
+        <div class="flex items-start justify-between">
+            <div>
+                <p class="text-gray-400 text-sm">Demo Requests</p>
+                <p class="text-3xl font-bold gradient-text mt-1">{{ demo_count }}</p>
+                {% if pending_demos %}<p class="text-xs text-orange-400 mt-2">{{ pending_demos }} pending</p>{% endif %}
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-primary-500/10 flex items-center justify-center">📋</div>
+        </div>
+        <a href="{% url 'dashboard:demo_list' %}" class="inline-flex items-center gap-1 text-sm text-primary-400 mt-4">View all →</a>
+    </div>
+
+    <div class="glass rounded-2xl p-6 hover:border-primary-500/30 transition-all group">
+        <div class="flex items-start justify-between">
+            <div>
+                <p class="text-gray-400 text-sm">Messages</p>
+                <p class="text-3xl font-bold gradient-text mt-1">{{ message_count }}</p>
+                {% if unread_messages %}<p class="text-xs text-orange-400 mt-2">{{ unread_messages }} unread</p>{% endif %}
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-accent-500/10 flex items-center justify-center">✉️</div>
+        </div>
+        <a href="{% url 'dashboard:message_list' %}" class="inline-flex items-center gap-1 text-sm text-primary-400 mt-4">View all →</a>
+    </div>
+
+    <div class="glass rounded-2xl p-6 hover:border-primary-500/30 transition-all group">
+        <div class="flex items-start justify-between">
+            <div>
+                <p class="text-gray-400 text-sm">Subscribers</p>
+                <p class="text-3xl font-bold gradient-text mt-1">{{ subscriber_count }}</p>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center">📰</div>
+        </div>
+        <a href="{% url 'dashboard:subscriber_list' %}" class="inline-flex items-center gap-1 text-sm text-primary-400 mt-4">View all →</a>
+    </div>
+
+    <div class="glass rounded-2xl p-6 hover:border-primary-500/30 transition-all group">
+        <div class="flex items-start justify-between">
+            <div>
+                <p class="text-gray-400 text-sm">Blog Posts</p>
+                <p class="text-3xl font-bold gradient-text mt-1">{{ blog_count }}</p>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center">📝</div>
+        </div>
+        <a href="{% url 'dashboard:blog_list' %}" class="inline-flex items-center gap-1 text-sm text-primary-400 mt-4">View all →</a>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="mb-8">
+    <h2 class="text-lg font-semibold mb-4">Quick Actions</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <a href="{% url 'dashboard:blog_create' %}" class="glass rounded-xl p-4 text-center hover:border-primary-500/30 transition-all">
+            <div class="w-10 h-10 mx-auto rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center mb-2">📝</div>
+            <span class="text-sm text-gray-300">New Post</span>
+        </a>
+        <a href="{% url 'dashboard:feature_create' %}" class="glass rounded-xl p-4 text-center hover:border-primary-500/30 transition-all">
+            <div class="w-10 h-10 mx-auto rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center mb-2">✨</div>
+            <span class="text-sm text-gray-300">Add Feature</span>
+        </a>
+        <a href="{% url 'dashboard:screenshot_create' %}" class="glass rounded-xl p-4 text-center hover:border-primary-500/30 transition-all">
+            <div class="w-10 h-10 mx-auto rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center mb-2">🖼️</div>
+            <span class="text-sm text-gray-300">Screenshot</span>
+        </a>
+        <a href="{% url 'dashboard:testimonial_create' %}" class="glass rounded-xl p-4 text-center hover:border-primary-500/30 transition-all">
+            <div class="w-10 h-10 mx-auto rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center mb-2">⭐</div>
+            <span class="text-sm text-gray-300">Testimonial</span>
+        </a>
+        <a href="{% url 'dashboard:faq_create' %}" class="glass rounded-xl p-4 text-center hover:border-primary-500/30 transition-all">
+            <div class="w-10 h-10 mx-auto rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center mb-2">❓</div>
+            <span class="text-sm text-gray-300">Add FAQ</span>
+        </a>
+        <a href="{% url 'home' %}" target="_blank" class="glass rounded-xl p-4 text-center hover:border-primary-500/30 transition-all">
+            <div class="w-10 h-10 mx-auto rounded-lg bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center mb-2">🌐</div>
+            <span class="text-sm text-gray-300">View Site</span>
+        </a>
+    </div>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- Recent Demo Requests -->
+    <div class="glass rounded-2xl overflow-hidden">
+        <div class="px-6 py-4 border-b border-primary-500/10 flex items-center justify-between">
+            <h2 class="font-semibold">Recent Demo Requests</h2>
+            <a href="{% url 'dashboard:demo_list' %}" class="text-sm text-primary-400">View all →</a>
+        </div>
+        <div class="divide-y divide-primary-500/10">
+            {% for demo in recent_demos %}
+            <a href="{% url 'dashboard:demo_detail' demo.pk %}" class="flex items-center gap-4 px-6 py-4 hover:bg-primary-500/5">
+                <div class="w-10 h-10 rounded-full bg-primary-500/10 flex items-center justify-center">☕</div>
+                <div class="flex-1 min-w-0">
+                    <p class="font-medium text-white truncate">{{ demo.cafe_name }}</p>
+                    <p class="text-sm text-gray-400">{{ demo.contact_name }} • {{ demo.city }}</p>
+                </div>
+                <span class="px-3 py-1 rounded-full text-xs {% if demo.status == 'pending' %}bg-orange-500/20 text-orange-400{% elif demo.status == 'converted' %}bg-green-500/20 text-green-400{% else %}bg-gray-500/20 text-gray-400{% endif %}">
+                    {{ demo.get_status_display }}
+                </span>
+            </a>
+            {% empty %}
+            <div class="px-6 py-8 text-center text-gray-500">No demo requests yet</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Recent Messages -->
+    <div class="glass rounded-2xl overflow-hidden">
+        <div class="px-6 py-4 border-b border-primary-500/10 flex items-center justify-between">
+            <h2 class="font-semibold">Unread Messages</h2>
+            <a href="{% url 'dashboard:message_list' %}" class="text-sm text-primary-400">View all →</a>
+        </div>
+        <div class="divide-y divide-primary-500/10">
+            {% for msg in recent_messages %}
+            <a href="{% url 'dashboard:message_detail' msg.pk %}" class="flex items-center gap-4 px-6 py-4 hover:bg-primary-500/5">
+                <div class="w-10 h-10 rounded-full bg-accent-500/10 flex items-center justify-center">✉️</div>
+                <div class="flex-1 min-w-0">
+                    <p class="font-medium text-white truncate">{{ msg.name }}</p>
+                    <p class="text-sm text-gray-400 truncate">{{ msg.message|truncatewords:10 }}</p>
+                </div>
+            </a>
+            {% empty %}
+            <div class="px-6 py-8 text-center text-gray-500">No unread messages</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

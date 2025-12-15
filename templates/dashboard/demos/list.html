@@ -1,0 +1,73 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<div class="flex items-center justify-between mb-6">
+    <div class="flex items-center gap-4">
+        <select onchange="window.location.href='?status='+this.value" class="bg-dark-800 border border-primary-500/20 rounded-lg px-4 py-2 text-sm">
+            <option value="">All Status</option>
+            {% for value, label in status_choices %}
+            <option value="{{ value }}" {% if current_status == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+<div class="glass rounded-2xl overflow-hidden">
+    <table class="w-full">
+        <thead class="border-b border-primary-500/10">
+            <tr class="text-left text-gray-400 text-sm">
+                <th class="px-6 py-4 font-medium">Cafe</th>
+                <th class="px-6 py-4 font-medium">Contact</th>
+                <th class="px-6 py-4 font-medium">Phone</th>
+                <th class="px-6 py-4 font-medium">Source</th>
+                <th class="px-6 py-4 font-medium">Status</th>
+                <th class="px-6 py-4 font-medium">Date</th>
+                <th class="px-6 py-4 font-medium"></th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-primary-500/10">
+            {% for demo in demos %}
+            <tr class="hover:bg-primary-500/5">
+                <td class="px-6 py-4">
+                    <div class="font-medium text-white">{{ demo.cafe_name }}</div>
+                    <div class="text-sm text-gray-400">{{ demo.city }}</div>
+                </td>
+                <td class="px-6 py-4 text-gray-300">{{ demo.contact_name }}</td>
+                <td class="px-6 py-4 text-gray-300">{{ demo.phone }}</td>
+                <td class="px-6 py-4 text-gray-400 text-sm">{{ demo.get_source_display }}</td>
+                <td class="px-6 py-4">
+                    <span class="px-3 py-1 rounded-full text-xs font-medium
+                        {% if demo.status == 'pending' %}bg-orange-500/20 text-orange-400
+                        {% elif demo.status == 'converted' %}bg-green-500/20 text-green-400
+                        {% elif demo.status == 'demo_created' %}bg-blue-500/20 text-blue-400
+                        {% elif demo.status == 'contacted' %}bg-purple-500/20 text-purple-400
+                        {% else %}bg-gray-500/20 text-gray-400{% endif %}">
+                        {{ demo.get_status_display }}
+                    </span>
+                </td>
+                <td class="px-6 py-4 text-gray-400 text-sm">{{ demo.created_at|date:"M d, Y" }}</td>
+                <td class="px-6 py-4">
+                    <a href="{% url 'dashboard:demo_detail' demo.pk %}" class="text-primary-400 hover:text-primary-300">View →</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7" class="px-6 py-12 text-center text-gray-500">No demo requests found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% if demos.has_other_pages %}
+<div class="mt-6 flex justify-center gap-2">
+    {% if demos.has_previous %}
+    <a href="?page={{ demos.previous_page_number }}" class="px-4 py-2 glass rounded-lg hover:border-primary-500/30">←</a>
+    {% endif %}
+    <span class="px-4 py-2 text-gray-400">Page {{ demos.number }} of {{ demos.paginator.num_pages }}</span>
+    {% if demos.has_next %}
+    <a href="?page={{ demos.next_page_number }}" class="px-4 py-2 glass rounded-lg hover:border-primary-500/30">→</a>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

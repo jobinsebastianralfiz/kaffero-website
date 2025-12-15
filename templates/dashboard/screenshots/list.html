@@ -1,0 +1,35 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<div class="flex items-center justify-end mb-6">
+    <a href="{% url 'dashboard:screenshot_create' %}" class="px-6 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg font-medium">+ Add Screenshot</a>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for screenshot in screenshots %}
+    <div class="glass rounded-2xl overflow-hidden hover:border-primary-500/30 transition-all group">
+        {% if screenshot.image %}
+        <img src="{{ screenshot.image.url }}" class="w-full h-48 object-cover">
+        {% else %}
+        <div class="w-full h-48 bg-primary-500/10 flex items-center justify-center text-4xl">🖼️</div>
+        {% endif %}
+        <div class="p-4">
+            <h3 class="font-semibold text-white mb-1">{{ screenshot.title }}</h3>
+            <p class="text-sm text-gray-400 mb-3">{{ screenshot.description|truncatewords:10 }}</p>
+            <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-500">Order: {{ screenshot.order }}</span>
+                <div class="flex gap-2">
+                    <a href="{% url 'dashboard:screenshot_edit' screenshot.pk %}" class="text-primary-400 text-sm">Edit</a>
+                    <form method="post" action="{% url 'dashboard:screenshot_delete' screenshot.pk %}" onsubmit="return confirm('Delete?')">
+                        {% csrf_token %}
+                        <button type="submit" class="text-red-400 text-sm">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-span-full glass rounded-2xl p-12 text-center text-gray-500">No screenshots yet. <a href="{% url 'dashboard:screenshot_create' %}" class="text-primary-400">Add your first screenshot</a></div>
+    {% endfor %}
+</div>
+{% endblock %}

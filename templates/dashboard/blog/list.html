@@ -1,0 +1,50 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<div class="flex items-center justify-between mb-6">
+    <div class="flex items-center gap-4">
+        <a href="{% url 'dashboard:blog_list' %}" class="px-4 py-2 rounded-lg {% if not current_status %}bg-primary-500/20 text-primary-400{% else %}glass text-gray-400{% endif %}">All</a>
+        {% for value, label in status_choices %}
+        <a href="?status={{ value }}" class="px-4 py-2 rounded-lg {% if current_status == value %}bg-primary-500/20 text-primary-400{% else %}glass text-gray-400{% endif %}">{{ label }}</a>
+        {% endfor %}
+    </div>
+    <a href="{% url 'dashboard:blog_create' %}" class="px-6 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg font-medium">+ New Post</a>
+</div>
+
+<div class="grid gap-4">
+    {% for post in posts %}
+    <div class="glass rounded-2xl p-6 hover:border-primary-500/30 transition-all">
+        <div class="flex items-start gap-6">
+            {% if post.featured_image %}
+            <img src="{{ post.featured_image.url }}" class="w-32 h-24 rounded-xl object-cover">
+            {% else %}
+            <div class="w-32 h-24 rounded-xl bg-primary-500/10 flex items-center justify-center text-3xl">📝</div>
+            {% endif %}
+            <div class="flex-1">
+                <div class="flex items-center gap-3 mb-2">
+                    <h3 class="text-lg font-semibold text-white">{{ post.title }}</h3>
+                    <span class="px-2 py-0.5 rounded text-xs {% if post.status == 'published' %}bg-green-500/20 text-green-400{% else %}bg-gray-500/20 text-gray-400{% endif %}">{{ post.get_status_display }}</span>
+                </div>
+                <p class="text-gray-400 text-sm mb-3">{{ post.excerpt|truncatewords:20 }}</p>
+                <div class="flex items-center gap-4 text-sm text-gray-500">
+                    <span>By {{ post.author }}</span>
+                    <span>{{ post.created_at|date:"M d, Y" }}</span>
+                    {% if post.tags %}<span>{{ post.tags }}</span>{% endif %}
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <a href="{% url 'dashboard:blog_edit' post.pk %}" class="px-4 py-2 glass rounded-lg text-primary-400 hover:border-primary-500/30">Edit</a>
+                <form method="post" action="{% url 'dashboard:blog_delete' post.pk %}" onsubmit="return confirm('Delete this post?')">
+                    {% csrf_token %}
+                    <button type="submit" class="px-4 py-2 text-red-400 hover:bg-red-500/10 rounded-lg">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="glass rounded-2xl p-12 text-center text-gray-500">
+        No blog posts yet. <a href="{% url 'dashboard:blog_create' %}" class="text-primary-400">Create your first post</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<div class="flex items-center justify-end mb-6">
+    <a href="{% url 'dashboard:testimonial_create' %}" class="px-6 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg font-medium">+ Add Testimonial</a>
+</div>
+
+<div class="grid gap-4">
+    {% for testimonial in testimonials %}
+    <div class="glass rounded-2xl p-6 hover:border-primary-500/30 transition-all">
+        <div class="flex items-start gap-6">
+            {% if testimonial.photo %}
+            <img src="{{ testimonial.photo.url }}" class="w-16 h-16 rounded-full object-cover">
+            {% else %}
+            <div class="w-16 h-16 rounded-full bg-primary-500/10 flex items-center justify-center text-2xl">👤</div>
+            {% endif %}
+            <div class="flex-1">
+                <div class="flex items-center gap-3 mb-1">
+                    <h3 class="font-semibold text-white">{{ testimonial.name }}</h3>
+                    {% if testimonial.is_featured %}<span class="px-2 py-0.5 rounded bg-yellow-500/20 text-yellow-400 text-xs">Featured</span>{% endif %}
+                </div>
+                <p class="text-sm text-gray-400">{{ testimonial.role }} at {{ testimonial.cafe_name }}, {{ testimonial.city }}</p>
+                <div class="flex gap-1 my-2">
+                    {% for i in "12345" %}
+                    <span class="{% if forloop.counter <= testimonial.rating %}text-yellow-400{% else %}text-gray-600{% endif %}">★</span>
+                    {% endfor %}
+                </div>
+                <p class="text-gray-300 text-sm">"{{ testimonial.content|truncatewords:30 }}"</p>
+            </div>
+            <div class="flex gap-2">
+                <a href="{% url 'dashboard:testimonial_edit' testimonial.pk %}" class="px-4 py-2 glass rounded-lg text-primary-400">Edit</a>
+                <form method="post" action="{% url 'dashboard:testimonial_delete' testimonial.pk %}" onsubmit="return confirm('Delete?')">
+                    {% csrf_token %}
+                    <button type="submit" class="px-4 py-2 text-red-400 hover:bg-red-500/10 rounded-lg">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="glass rounded-2xl p-12 text-center text-gray-500">No testimonials yet. <a href="{% url 'dashboard:testimonial_create' %}" class="text-primary-400">Add your first testimonial</a></div>
+    {% endfor %}
+</div>
+{% endblock %}

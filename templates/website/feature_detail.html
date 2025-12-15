@@ -1,0 +1,53 @@
+{% extends 'website/base.html' %}
+{% block title %}{{ feature.title }} - {{ site_name }}{% endblock %}
+{% block content %}
+<section class="relative pt-32 pb-20 overflow-hidden">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <a href="{% url 'features' %}" class="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 mb-8 transition-colors">
+            <span>&larr;</span> All Features
+        </a>
+
+        <div class="glass rounded-3xl p-8 md:p-12 neon-border">
+            <div class="flex items-center gap-4 mb-8">
+                {% if feature.icon %}
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 flex items-center justify-center">
+                    <span class="text-4xl">{{ feature.icon }}</span>
+                </div>
+                {% endif %}
+                <h1 class="text-3xl md:text-4xl font-display font-bold">{{ feature.title }}</h1>
+            </div>
+
+            {% if feature.image %}
+            <div class="relative rounded-2xl overflow-hidden mb-8">
+                <img src="{{ feature.image.url }}" alt="{{ feature.title }}" class="w-full">
+            </div>
+            {% endif %}
+
+            <div class="prose prose-invert prose-lg max-w-none">
+                {{ feature.description|safe }}
+            </div>
+
+            {% if feature.benefits %}
+            <div class="mt-8 pt-8 border-t border-white/10">
+                <h2 class="text-xl font-display font-bold mb-4">Key Benefits</h2>
+                <ul class="space-y-3">
+                    {% for benefit in feature.benefits %}
+                    <li class="flex items-start gap-3">
+                        <span class="text-primary-400 mt-1">&#10003;</span>
+                        <span class="text-gray-300">{{ benefit }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="mt-12 text-center">
+            <p class="text-gray-400 mb-6">Want to see this feature in action?</p>
+            <a href="{% url 'demo' %}" class="btn-stunning text-lg px-10 py-5">Request Free Demo</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

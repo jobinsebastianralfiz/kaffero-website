@@ -1,0 +1,119 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+            <h2 class="text-xl font-display font-bold">Chat Conversations</h2>
+            <p class="text-sm text-gray-400">View and manage chatbot conversations</p>
+        </div>
+        <div class="flex gap-2">
+            <a href="?leads=true" class="px-4 py-2 text-sm rounded-lg {% if lead_filter == 'true' %}bg-primary-500 text-white{% else %}glass text-gray-300 hover:text-white{% endif %} transition">
+                Leads Only
+            </a>
+            <a href="?resolved=false" class="px-4 py-2 text-sm rounded-lg {% if resolved_filter == 'false' %}bg-primary-500 text-white{% else %}glass text-gray-300 hover:text-white{% endif %} transition">
+                Unresolved
+            </a>
+            <a href="{% url 'dashboard:chat_list' %}" class="px-4 py-2 text-sm rounded-lg glass text-gray-300 hover:text-white transition">
+                All
+            </a>
+        </div>
+    </div>
+
+    <!-- Chat List -->
+    <div class="glass rounded-xl overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full">
+                <thead>
+                    <tr class="border-b border-white/10">
+                        <th class="text-left px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Session</th>
+                        <th class="text-left px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Visitor</th>
+                        <th class="text-left px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Messages</th>
+                        <th class="text-left px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Status</th>
+                        <th class="text-left px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Date</th>
+                        <th class="text-left px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-white/5">
+                    {% for chat in chats %}
+                    <tr class="hover:bg-white/5 transition-colors">
+                        <td class="px-6 py-4">
+                            <span class="text-sm font-mono text-gray-300">{{ chat.session_id|truncatechars:12 }}</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div>
+                                <div class="text-sm font-medium text-white">{{ chat.visitor_name|default:"Anonymous" }}</div>
+                                {% if chat.visitor_email %}
+                                <div class="text-xs text-gray-400">{{ chat.visitor_email }}</div>
+                                {% endif %}
+                                {% if chat.visitor_phone %}
+                                <div class="text-xs text-gray-400">{{ chat.visitor_phone }}</div>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="text-sm text-gray-300">{{ chat.message_count }}</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex gap-2">
+                                {% if chat.is_lead %}
+                                <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-500/20 text-green-400">Lead</span>
+                                {% endif %}
+                                {% if chat.is_resolved %}
+                                <span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-500/20 text-blue-400">Resolved</span>
+                                {% else %}
+                                <span class="px-2 py-1 text-xs font-medium rounded-full bg-yellow-500/20 text-yellow-400">Open</span>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="text-sm text-gray-400">{{ chat.created_at|date:"M d, Y" }}</span>
+                            <br>
+                            <span class="text-xs text-gray-500">{{ chat.created_at|time:"h:i A" }}</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
+                                <a href="{% url 'dashboard:chat_detail' chat.pk %}" class="p-2 rounded-lg hover:bg-white/10 transition" title="View">
+                                    <svg class="w-5 h-5 text-gray-400 hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                    </svg>
+                                </a>
+                                <form method="post" action="{% url 'dashboard:chat_delete' chat.pk %}" onsubmit="return confirm('Delete this conversation?')">
+                                    {% csrf_token %}
+                                    <button type="submit" class="p-2 rounded-lg hover:bg-red-500/20 transition" title="Delete">
+                                        <svg class="w-5 h-5 text-gray-400 hover:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="px-6 py-12 text-center text-gray-400">
+                            No chat conversations yet
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    {% if chats.has_other_pages %}
+    <div class="flex justify-center gap-2">
+        {% if chats.has_previous %}
+        <a href="?page={{ chats.previous_page_number }}" class="px-4 py-2 glass rounded-lg hover:bg-white/10 transition">Previous</a>
+        {% endif %}
+        <span class="px-4 py-2 text-gray-400">Page {{ chats.number }} of {{ chats.paginator.num_pages }}</span>
+        {% if chats.has_next %}
+        <a href="?page={{ chats.next_page_number }}" class="px-4 py-2 glass rounded-lg hover:bg-white/10 transition">Next</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
