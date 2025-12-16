@@ -80,3 +80,7 @@ celerybeat.pid
 
 # Railway
 .railway/
+
+# Node
+node_modules/
+package-lock.json

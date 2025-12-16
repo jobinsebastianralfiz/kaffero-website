@@ -1,0 +1,12 @@
+{
+  "name": "kaffero-website",
+  "version": "1.0.0",
+  "description": "Kaffero - Cafe Management Software Website",
+  "scripts": {
+    "build:css": "tailwindcss -i ./static/src/input.css -o ./static/css/tailwind.min.css --minify",
+    "watch:css": "tailwindcss -i ./static/src/input.css -o ./static/css/tailwind.min.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
