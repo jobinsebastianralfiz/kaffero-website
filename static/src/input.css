@@ -103,7 +103,10 @@
 
 .btn-outline-stunning {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     padding: 1rem 2.5rem;
     border-radius: 9999px;
     font-weight: 600;
