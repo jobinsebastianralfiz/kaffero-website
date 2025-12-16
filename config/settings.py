@@ -19,7 +19,7 @@ ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1,.railway.ap
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.railway.app',
-    'https://kaffero.online',
+    'https://www.kaffero.online',
     'https://*.kaffero.online',
 ]
 
