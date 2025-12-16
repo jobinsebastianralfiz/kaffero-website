@@ -21,113 +21,136 @@
             </p>
         </div>
 
-        <!-- Pricing Cards -->
+        <!-- Pricing Cards with 3D Effect -->
         <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <!-- Starter -->
-            <div class="glass rounded-3xl p-8 card-hover">
-                <div class="text-center mb-6">
-                    <h3 class="text-xl font-display font-bold mb-2">Starter</h3>
-                    <p class="text-sm text-gray-400">For small cafes</p>
+            <article class="card-3d card-3d-pricing" data-tilt>
+                <div class="card-3d-depth"></div>
+                <div class="card-3d-inner">
+                    <div class="card-3d-shine"></div>
+                    <div class="card-3d-bg">
+                        <div class="card-3d-content">
+                            <div class="mb-6">
+                                <h3 class="text-xl font-display font-bold mb-2">Starter</h3>
+                                <p class="text-sm text-gray-400">For small cafes</p>
+                            </div>
+                            <div class="mb-6">
+                                <span class="card-3d-price">&#8377;35,000</span>
+                                <span class="text-gray-400 text-sm">/one-time</span>
+                            </div>
+                            <ul class="card-3d-features">
+                                <li>
+                                    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    1 Outlet
+                                </li>
+                                <li>
+                                    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Up to 5 tables
+                                </li>
+                                <li>
+                                    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    3 users
+                                </li>
+                                <li>
+                                    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    1 year free support
+                                </li>
+                            </ul>
+                            <a href="{% url 'demo' %}" class="btn-outline-stunning w-full text-center block mt-auto">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="card-3d-accent"></div>
                 </div>
-                <div class="text-center mb-6">
-                    <span class="text-4xl font-display font-bold">&#8377;35,000</span>
-                    <span class="text-gray-400">/one-time</span>
-                </div>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-center gap-3 text-sm">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                        1 Outlet
-                    </li>
-                    <li class="flex items-center gap-3 text-sm">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                        Up to 5 tables
-                    </li>
-                    <li class="flex items-center gap-3 text-sm">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                        3 users
-                    </li>
-                    <li class="flex items-center gap-3 text-sm">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                        1 year free support
-                    </li>
-                </ul>
-                <a href="{% url 'demo' %}" class="btn-outline-stunning w-full text-center block">Get Started</a>
-            </div>
+            </article>
 
             <!-- Standard - Popular -->
-            <div class="glass rounded-3xl p-8 card-hover relative">
-                <div class="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span class="bg-gradient-to-r from-primary-500 to-accent-500 text-white text-xs font-bold px-4 py-1 rounded-full">
-                        Most Popular
-                    </span>
+            <article class="card-3d card-3d-pricing card-3d-featured" data-tilt>
+                <div class="card-3d-depth"></div>
+                <div class="card-3d-inner">
+                    <div class="card-3d-shine"></div>
+                    <div class="card-3d-bg">
+                        <span class="card-3d-badge">Most Popular</span>
+                        <div class="card-3d-content">
+                            <div class="mb-6 pt-4">
+                                <h3 class="text-xl font-display font-bold mb-2">Standard</h3>
+                                <p class="text-sm text-gray-400">For growing cafes</p>
+                            </div>
+                            <div class="mb-6">
+                                <span class="card-3d-price">&#8377;65,000</span>
+                                <span class="text-gray-400 text-sm">/one-time</span>
+                            </div>
+                            <ul class="card-3d-features">
+                                <li>
+                                    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Up to 3 Outlets
+                                </li>
+                                <li>
+                                    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Up to 20 tables
+                                </li>
+                                <li>
+                                    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    10 users
+                                </li>
+                                <li>
+                                    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    1 year free support
+                                </li>
+                                <li>
+                                    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Priority support
+                                </li>
+                            </ul>
+                            <a href="{% url 'demo' %}" class="btn-stunning w-full text-center block mt-auto">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="card-3d-accent"></div>
                 </div>
-                <div class="text-center mb-6">
-                    <h3 class="text-xl font-display font-bold mb-2">Standard</h3>
-                    <p class="text-sm text-gray-400">For growing cafes</p>
-                </div>
-                <div class="text-center mb-6">
-                    <span class="text-4xl font-display font-bold text-purple-400">&#8377;65,000</span>
-                    <span class="text-gray-400">/one-time</span>
-                </div>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-center gap-3 text-sm">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                        Up to 3 Outlets
-                    </li>
-                    <li class="flex items-center gap-3 text-sm">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                        Up to 20 tables
-                    </li>
-                    <li class="flex items-center gap-3 text-sm">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                        10 users
-                    </li>
-                    <li class="flex items-center gap-3 text-sm">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                        1 year free support
-                    </li>
-                    <li class="flex items-center gap-3 text-sm">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                        Priority support
-                    </li>
-                </ul>
-                <a href="{% url 'demo' %}" class="btn-stunning w-full text-center block">Get Started</a>
-            </div>
+            </article>
 
             <!-- Premium -->
-            <div class="glass rounded-3xl p-8 card-hover">
-                <div class="text-center mb-6">
-                    <h3 class="text-xl font-display font-bold mb-2">Premium</h3>
-                    <p class="text-sm text-gray-400">For cafe chains</p>
+            <article class="card-3d card-3d-pricing" data-tilt>
+                <div class="card-3d-depth"></div>
+                <div class="card-3d-inner">
+                    <div class="card-3d-shine"></div>
+                    <div class="card-3d-bg">
+                        <div class="card-3d-content">
+                            <div class="mb-6">
+                                <h3 class="text-xl font-display font-bold mb-2">Premium</h3>
+                                <p class="text-sm text-gray-400">For cafe chains</p>
+                            </div>
+                            <div class="mb-6">
+                                <span class="card-3d-price">&#8377;95,000</span>
+                                <span class="text-gray-400 text-sm">/one-time</span>
+                            </div>
+                            <ul class="card-3d-features">
+                                <li>
+                                    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Unlimited Outlets
+                                </li>
+                                <li>
+                                    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Unlimited tables
+                                </li>
+                                <li>
+                                    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    Unlimited users
+                                </li>
+                                <li>
+                                    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    1 year free support
+                                </li>
+                                <li>
+                                    <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    On-site setup
+                                </li>
+                            </ul>
+                            <a href="{% url 'demo' %}" class="btn-outline-stunning w-full text-center block mt-auto">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="card-3d-accent"></div>
                 </div>
-                <div class="text-center mb-6">
-                    <span class="text-4xl font-display font-bold">&#8377;95,000</span>
-                    <span class="text-gray-400">/one-time</span>
-                </div>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-center gap-3 text-sm">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                        Unlimited Outlets
-                    </li>
-                    <li class="flex items-center gap-3 text-sm">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                        Unlimited tables
-                    </li>
-                    <li class="flex items-center gap-3 text-sm">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                        Unlimited users
-                    </li>
-                    <li class="flex items-center gap-3 text-sm">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                        1 year free support
-                    </li>
-                    <li class="flex items-center gap-3 text-sm">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                        On-site setup
-                    </li>
-                </ul>
-                <a href="{% url 'demo' %}" class="btn-outline-stunning w-full text-center block">Get Started</a>
-            </div>
+            </article>
         </div>
 
         <!-- All Plans Include -->
@@ -194,4 +217,40 @@
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    // 3D Tilt Effect for Cards
+    const cards = document.querySelectorAll('.card-3d[data-tilt]');
+
+    cards.forEach(card => {
+        const inner = card.querySelector('.card-3d-inner');
+        const shine = card.querySelector('.card-3d-shine');
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = (y - centerY) / 25;
+            const rotateY = (centerX - x) / 25;
+
+            inner.style.transform = `rotateX(${-rotateX}deg) rotateY(${-rotateY}deg)`;
+
+            // Dynamic shine effect
+            const shineX = (x / rect.width) * 100;
+            const shineY = (y / rect.height) * 100;
+            shine.style.background = `radial-gradient(circle at ${shineX}% ${shineY}%, rgba(255,255,255,0.15) 0%, transparent 50%)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            inner.style.transform = 'rotateX(0) rotateY(0)';
+            shine.style.background = '';
+        });
+    });
+</script>
 {% endblock %}

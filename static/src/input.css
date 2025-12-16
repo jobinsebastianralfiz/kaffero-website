@@ -280,3 +280,280 @@
 .prose-invert strong {
     color: white;
 }
+
+/* ============================================
+   3D CARD STYLES - Premium Tilt Effect
+   ============================================ */
+
+/* 3D Card Container */
+.card-3d {
+    position: relative;
+    perspective: 1500px;
+    cursor: pointer;
+}
+
+.card-3d-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease;
+}
+
+.card-3d:hover .card-3d-inner {
+    box-shadow:
+        0 50px 80px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(192, 38, 211, 0.3),
+        0 0 80px rgba(192, 38, 211, 0.15);
+}
+
+/* Shine Effect Layer */
+.card-3d-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        105deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.03) 45%,
+        rgba(255, 255, 255, 0.06) 50%,
+        transparent 55%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 10;
+    border-radius: inherit;
+}
+
+.card-3d:hover .card-3d-shine {
+    opacity: 1;
+}
+
+/* Card Background */
+.card-3d-bg {
+    position: relative;
+    background: rgba(13, 13, 20, 0.9);
+    border: 1px solid rgba(192, 38, 211, 0.15);
+    border-radius: 24px;
+    overflow: hidden;
+    transform: translateZ(0);
+    height: 100%;
+}
+
+/* 3D Depth Layer (shadow layer behind card) */
+.card-3d-depth {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: -10px;
+    bottom: -10px;
+    border: 1px solid rgba(192, 38, 211, 0.1);
+    border-radius: 24px;
+    transform: translateZ(-30px);
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+
+.card-3d:hover .card-3d-depth {
+    top: 20px;
+    left: 20px;
+    right: -20px;
+    bottom: -20px;
+    transform: translateZ(-50px);
+}
+
+/* 3D Accent Glow */
+.card-3d-accent {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #c026d3 0%, transparent 60%);
+    opacity: 0;
+    transform: translateZ(-20px) rotate(45deg);
+    transition: all 0.4s ease;
+    pointer-events: none;
+}
+
+.card-3d:hover .card-3d-accent {
+    opacity: 0.2;
+    transform: translateZ(10px) rotate(45deg) scale(1.2);
+}
+
+/* Content that lifts on hover */
+.card-3d-content {
+    position: relative;
+    padding: 2rem;
+    transform: translateZ(20px);
+    transition: transform 0.4s ease;
+}
+
+.card-3d:hover .card-3d-content {
+    transform: translateZ(40px);
+}
+
+/* Badge that floats */
+.card-3d-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) translateZ(30px);
+    padding: 0.5rem 1.25rem;
+    background: linear-gradient(135deg, #c026d3, #0ea5e9);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 9999px;
+    transition: transform 0.4s ease;
+    z-index: 5;
+}
+
+.card-3d:hover .card-3d-badge {
+    transform: translateX(-50%) translateZ(50px);
+}
+
+/* Icon that lifts */
+.card-3d-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(192, 38, 211, 0.2), rgba(14, 165, 233, 0.2));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.5rem;
+    transform: translateZ(30px);
+    transition: all 0.4s ease;
+}
+
+.card-3d:hover .card-3d-icon {
+    transform: translateZ(60px) scale(1.1);
+    box-shadow: 0 20px 40px rgba(192, 38, 211, 0.3);
+}
+
+/* Price styling */
+.card-3d-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #c026d3, #0ea5e9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+/* Feature list in 3D card */
+.card-3d-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.card-3d-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-3d-features li:last-child {
+    border-bottom: none;
+}
+
+.card-3d-features li svg {
+    width: 18px;
+    height: 18px;
+    color: #10b981;
+    flex-shrink: 0;
+}
+
+/* Popular/Featured card variant */
+.card-3d.card-3d-featured .card-3d-bg {
+    border-color: rgba(192, 38, 211, 0.4);
+    background: linear-gradient(135deg, rgba(192, 38, 211, 0.1), rgba(13, 13, 20, 0.95));
+}
+
+.card-3d.card-3d-featured:hover .card-3d-inner {
+    box-shadow:
+        0 50px 80px rgba(0, 0, 0, 0.5),
+        0 0 0 2px rgba(192, 38, 211, 0.5),
+        0 0 100px rgba(192, 38, 211, 0.25);
+}
+
+/* Feature card specific styles */
+.card-3d-feature {
+    height: 100%;
+    min-height: 320px;
+}
+
+.card-3d-feature .card-3d-bg {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-3d-feature .card-3d-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-3d-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.card-3d-tag {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Pricing card specific */
+.card-3d-pricing {
+    min-height: 480px;
+}
+
+.card-3d-pricing .card-3d-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-3d-pricing .card-3d-features {
+    text-align: left;
+    flex: 1;
+}
+
+/* Animation keyframes */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
