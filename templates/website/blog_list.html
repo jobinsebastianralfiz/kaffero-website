@@ -11,7 +11,7 @@
             {% for post in posts %}
             <a href="{% url 'blog_detail' post.slug %}" class="glass rounded-2xl overflow-hidden card-hover block">
                 {% if post.featured_image %}
-                <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="w-full h-48 object-cover">
+                <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="w-full h-48 object-cover" loading="lazy" decoding="async">
                 {% else %}
                 <div class="w-full h-48 bg-gradient-to-br from-primary-500/20 to-accent-500/20 flex items-center justify-center">
                     <span class="text-4xl">&#128221;</span>

@@ -10,7 +10,7 @@
 
         {% if post.featured_image %}
         <div class="relative rounded-3xl overflow-hidden mb-8">
-            <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="w-full h-64 md:h-96 object-cover">
+            <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="w-full h-64 md:h-96 object-cover" loading="eager" decoding="async" fetchpriority="high">
             <div class="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent"></div>
         </div>
         {% endif %}
